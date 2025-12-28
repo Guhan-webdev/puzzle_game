@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+// import Phaser from "phaser";
 
 /**
  * Shuffles the puzzle by performing random valid moves.
