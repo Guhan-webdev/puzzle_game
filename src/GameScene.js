@@ -1,6 +1,5 @@
 import PuzzleController from "./puzzleController.js";
 import { shufflePuzzle } from "./shuffleUtils.js";
-import bgMusicPath from "./assets/water-chapter-reflections-beneath-368530.mp3";
 
 export default class GameScene extends Phaser.Scene {
     constructor() {
@@ -14,7 +13,7 @@ export default class GameScene extends Phaser.Scene {
     preload() {
         const the_image = 'https://images.pexels.com/photos/20794372/pexels-photo-20794372/free-photo-of-small-birdhouse-hanging-from-a-tree.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
         this.load.image('high-res-puzzle', the_image);
-        this.load.audio('bg-music', bgMusicPath);
+        this.load.audio('bg-music', 'src/assets/water-chapter-reflections-beneath-368530.mp3');
     }
     create() {
         // --- Play Background Music ---
