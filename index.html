@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Deep Puzzle</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+  <div id="game-ui">
+    <div id="start-screen">
+      <h1 class="title">Deep Puzzle</h1>
+      <button id="start-btn">Play Now</button>
+    </div>
+
+    <div id="in-game-ui" class="hidden">
+      <button id="ref-btn" title="Hold to see original">👁️</button>
+    </div>
+
+    <img id="ref-image" class="hidden" alt="Reference">
+  </div>
+  <div id="gameCanvas"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

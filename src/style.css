@@ -1,0 +1,185 @@
+:root {
+  --bg-color: #0f0c29;
+  --bg-gradient: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  --accent-glow: 0 0 20px rgba(100, 200, 255, 0.3);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* Prevent scrolling */
+  background: var(--bg-gradient);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: white;
+
+  /* Critical for mobile game feel */
+  touch-action: none;
+  /* Disable browser zoom/scroll gestures */
+  user-select: none;
+  /* Disable text selection */
+  -webkit-user-select: none;
+  overscroll-behavior: none;
+  /* Disable pull-to-refresh */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#gameCanvas {
+  /* Center the canvas visually */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Add a premium lift/shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), var(--accent-glow);
+  border-radius: 8px;
+  /* Subtle rounding if canvas doesn't fill screen completely */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #000;
+}
+
+/* --- UI Overlays --- */
+#game-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Let clicks pass through to game by default */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Start Screen */
+#start-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 12, 41, 1);
+  /* Opaque dark background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+  /* Catch clicks */
+  transition: opacity 0.5s ease;
+  z-index: 20;
+}
+
+.title {
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  font-weight: 800;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 30px rgba(0, 114, 255, 0.5);
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+#start-btn {
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(118, 75, 162, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#start-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 5px 10px rgba(118, 75, 162, 0.4);
+}
+
+/* In-Game UI */
+#in-game-ui {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  pointer-events: auto;
+  z-index: 15;
+}
+
+#ref-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#ref-btn:active {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0.9);
+}
+
+/* Reference Image Overlay */
+#ref-image {
+  position: absolute;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  z-index: 30;
+  /* Above everything */
+  pointer-events: none;
+  border: 2px solid white;
+  transition: opacity 0.2s ease;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none !important;
+}
+
+/* --- Mobile Optimization for 360x805 and similar --- */
+@media (max-width: 400px) {
+  #start-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+  }
+
+  #ref-btn {
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-height: 700px) {
+  .title {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+  }
+}
