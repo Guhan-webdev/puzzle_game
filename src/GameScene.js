@@ -1,6 +1,5 @@
 import PuzzleController from "./puzzleController.js";
 import { shufflePuzzle } from "./shuffleUtils.js";
-// import Phaser from "phaser";
 import bgMusicPath from './assets/water-chapter-reflections-beneath-368530.mp3';
 
 export default class GameScene extends Phaser.Scene {
